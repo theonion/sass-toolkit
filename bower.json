@@ -1,0 +1,18 @@
+{
+  "name": "sass-toolkit",
+  "version": "0.0.0",
+  "homepage": "https://github.com/theonion/sass-toolkit",
+  "authors": [
+    "webtech@theonion.com"
+  ],
+  "description": "Sass utilities and components used at The Onion.",
+  "main": "main.scss",
+  "license": "Copyright The Onion",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

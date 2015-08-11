@@ -1,0 +1,6 @@
+{
+  "name": "sass-toolkit",
+  "root": "sassdoc/",
+  "clean_urls": true,
+  "error_page": "error.html"
+}
