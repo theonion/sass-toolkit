@@ -19,6 +19,13 @@ In the project you're working in:
 bower link sass-toolkit
 ```
 
+## documentation
+
+`npm install`
+`npm run sassdoc`
+
+Documentation will generate into `sassdoc/index.html`
+
 Be sure to publish changes to the toolkit before deploying/pushing your
 branch.
 
