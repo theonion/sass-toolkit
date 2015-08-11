@@ -4,6 +4,12 @@
 
 Add this project to your `bower.json`
 
+Currently only available through git:
+
+```
+  "sass-toolkit": "https://github.com/theonion/sass-webtoolkit.git#master"
+```
+
 ## local development
 
 Use bower link to develop locally without having to cycle through a
