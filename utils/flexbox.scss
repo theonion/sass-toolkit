@@ -1,11 +1,13 @@
-//
-//  Flexbox Mixins
-//
+////
+///  Flexbox Mixins
+///  @group Flexbox
+////
+
 // Taken from: https://github.com/mastastealth/sass-flex-mixin
 // Flexbox Mixins
 // http://philipwalton.github.io/solved-by-flexbox/
 // https://github.com/philipwalton/solved-by-flexbox
-// 
+//
 // Copyright (c) 2013 Brian Franco
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -31,9 +33,9 @@
 /// container box.
 ///
 /// The 'inline-flex' value causes an element to generate a inline-level
-/// flex container box. 
+/// flex container box.
 ///
-/// display: flex | inline-flex
+/// @output `display: flex | inline-flex`
 ///
 /// http://w3.org/tr/css3-flexbox/#flex-containers
 ///
@@ -68,10 +70,8 @@
 /// the flex container, by setting the direction of the flex container's
 /// main axis. This determines the direction that flex items are laid out in. 
 ///
-/// Values: row | row-reverse | column | column-reverse
-/// Default: row
-///
 /// http://w3.org/tr/css3-flexbox/#flex-direction-property
+/// @param {String} $value [row] - row | reverse | column | column-reverse
 @mixin flex-direction($value: row) {
 	@if $value == row-reverse {
 		-webkit-box-direction: reverse;
@@ -91,8 +91,9 @@
 	-ms-flex-direction: $value;
 	flex-direction: $value;
 }
-	// Shorter version:
-	@mixin flex-dir($args...) { @include flex-direction($args...); }
+
+/// @alias flex-direction
+@mixin flex-dir($args...) { @include flex-direction($args...); }
 
 //----------------------------------------------------------------------
 
@@ -102,10 +103,8 @@
 /// or multi-line, and the direction of the cross-axis, which determines
 /// the direction new lines are stacked in. 
 ///
-/// Values: nowrap | wrap | wrap-reverse
-/// Default: nowrap
-///
 /// http://w3.org/tr/css3-flexbox/#flex-wrap-property
+/// @param {String} $value [nowrap] - nowrap | wrap | wrap-reverse
 @mixin flex-wrap($value: nowrap) {
 	// No Webkit Box fallback.
 	-webkit-flex-wrap: $value;
@@ -126,10 +125,8 @@
 /// and 'flex-wrap' properties, which together define the flex container's
 /// main and cross axes.
 ///
-/// Values: <flex-direction> | <flex-wrap> 
-/// Default: row nowrap
-///
 /// http://w3.org/tr/css3-flexbox/#flex-flow-property
+/// @param {String} $values [row nowrap] - <flex-direction> <flex-wrap>
 @mixin flex-flow($values: (row nowrap)) {
 	// No Webkit Box fallback.
 	-webkit-flex-flow: $values;
@@ -145,9 +142,8 @@
 /// The 'order' property controls the order in which flex items appear within
 /// their flex container, by assigning them to ordinal groups.
 ///
-/// Default: 0
-///
 /// http://w3.org/tr/css3-flexbox/#order-property
+/// @param {Integer} $int [0]
 @mixin order($int: 0) {
 	-webkit-box-ordinal-group: $int + 1;
 	-webkit-order: $int;
@@ -163,9 +159,8 @@
 /// The 'flex-grow' property sets the flex grow factor. Negative numbers
 /// are invalid.
 ///
-/// Default: 0
-///
 /// http://w3.org/tr/css3-flexbox/#flex-grow-property
+/// @param {Integer} $int [0] - MUST NOT be negative.
 @mixin flex-grow($int: 0) {
 	-webkit-box-flex: $int;
 	-webkit-flex-grow: $int;
@@ -181,9 +176,8 @@
 /// The 'flex-shrink' property sets the flex shrink factor. Negative numbers
 /// are invalid.
 ///
-/// Default: 1
-///
 /// http://w3.org/tr/css3-flexbox/#flex-shrink-property
+/// @param {Integer} $int [0] - MUST NOT be negative
 @mixin flex-shrink($int: 1) {
 	-webkit-flex-shrink: $int;
 	-moz-flex-shrink: $int;
@@ -197,10 +191,8 @@
 ///
 /// The 'flex-basis' property sets the flex basis. Negative lengths are invalid. 
 ///
-/// Values: Like "width" 
-/// Default: auto
-///
 /// http://www.w3.org/TR/css3-flexbox/#flex-basis-property
+/// @param {Length} $value [auto] - values like `width` property
 @mixin flex-basis($value: auto) {
 	-webkit-flex-basis: $value;
 	-moz-flex-basis: $value;
@@ -218,10 +210,10 @@
 /// property to determine the main size of the element. If an element is
 /// not a flex item, 'flex' has no effect.
 ///
-/// Values: none | <flex-grow> <flex-shrink> || <flex-basis>
-/// Default: See individual properties (1 1 0).
-///
 /// http://w3.org/tr/css3-flexbox/#flex-property
+/// @param {Integer} $fg - flex-grow values
+/// @param {Integer} $fs - flex-shrink values
+/// @param {Length} $fb - flex-basis length value
 @mixin flex($fg: 1, $fs: null, $fb: null) {
     
 	// Set a variable to be used by box-flex properties
@@ -254,10 +246,8 @@
 ///
 /// Note: 'space-*' values not supported in older syntaxes.
 ///
-/// Values: flex-start | flex-end | center | space-between | space-around
-/// Default: flex-start
-///
 /// http://w3.org/tr/css3-flexbox/#justify-content-property
+/// @param {String} $value [flex-start] - flex-start | flex-end | center | space-between | space-around
 @mixin justify-content($value: flex-start) {
 	@if $value == flex-start {
 		-webkit-box-pack: start;
@@ -278,8 +268,9 @@
 	-moz-justify-content: $value;
 	justify-content: $value;
 }
-	// Shorter version:
-	@mixin flex-just($args...) { @include justify-content($args...); }
+
+/// @alias justify-content
+@mixin flex-just($args...) { @include justify-content($args...); }
 
 //----------------------------------------------------------------------
 
@@ -293,10 +284,8 @@
 /// anonymous flex items, 'align-self' always matches the value of 'align-items'
 /// on their associated flex container.) 
 ///
-/// Values: flex-start | flex-end | center | baseline | stretch
-/// Default: stretch
-///
 /// http://w3.org/tr/css3-flexbox/#align-items-property
+/// @param {String} $value [stretch] - flex-start | flex-end | center | baseline | stretch
 @mixin align-items($value: stretch) {
 	@if $value == flex-start {
 		-webkit-box-align: start;
@@ -317,8 +306,7 @@
 
 /// Flexbox Align Self
 ///
-/// Values: auto | flex-start | flex-end | center | baseline | stretch
-/// Default: auto
+/// @param {String} $value [auto] - auto | flex-start | flex-end | center | baseline | stretch
 @mixin align-self($value: auto) {
 	// No Webkit Box Fallback.
 	-webkit-align-self: $value;
@@ -342,10 +330,8 @@
 /// how 'justify-content' aligns individual items within the main-axis. Note,
 /// this property has no effect when the flexbox has only a single line.
 ///
-/// Values: flex-start | flex-end | center | space-between | space-around | stretch
-/// Default: stretch
-///
 /// http://w3.org/tr/css3-flexbox/#align-content-property
+/// @param {String} $value [stretch] - flex-start | flex-end | center | space-between | space-around | stretch
 @mixin align-content($value: stretch) {
 	// No Webkit Box Fallback.
 	-webkit-align-content: $value;

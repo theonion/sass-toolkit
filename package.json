@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sassdoc": "node_modules/sassdoc/bin/sassdoc ./"
+    "sassdoc": "node_modules/sassdoc/bin/sassdoc --verbose **/*.scss",
+    "deploy-docs": "node_modules/divshot-cli/bin/divshot.js push -t cqsoPWk3AH9AJLTRvfSb3Ojxsl9f1GxTTurdFzfW",
+    "update-docs": "npm run sassdoc && npm run deploy-docs"
   },
   "repository": {
     "type": "git",
