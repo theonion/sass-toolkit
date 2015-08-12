@@ -13,7 +13,7 @@ Currently only available through git:
 
 ```
   "dependencies": {
-    "sass-toolkit": "https://6bef0642eb08bad48af5289bfc80f4dae3c1bfcd@github.com/theonion/sass-toolkit.git#master"
+    "sass-toolkit": "https://0469c955e10241b40fffe0225e29a3c238aadf69@github.com/theonion/sass-toolkit.git#master"
   },
   "resolutions": {
     "sass-toolkit": "master"
