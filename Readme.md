@@ -1,6 +1,3 @@
-<strong><i>:rotating_light: THIS REPO SHOULD NOT BE MADE PUBLIC
-:rotating_light:</i></strong>
-
 # reuseable sass files at the onion
 
 <a href="http://development.sass-toolkit.divshot.io/">Online Documention</a>
